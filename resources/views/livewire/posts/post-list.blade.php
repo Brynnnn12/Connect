@@ -34,9 +34,9 @@
                         <p class="font-semibold text-zinc-900 dark:text-white">
                             {{ $post->user->name }}
                         </p>
-                        <p class="text-xs text-zinc-500 dark:text-zinc-400">
-                            @{{ strtolower(str_replace(' ', '_', $post - > user - > name)) }} • {{ $post->created_at->diffForHumans() }}
-                        </p>
+                        <div class="text-xs text-zinc-500 dark:text-zinc-400">
+                            {{ $post->created_at->diffForHumans() }}
+                        </div>
                     </div>
                 </div>
 

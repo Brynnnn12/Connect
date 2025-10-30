@@ -81,7 +81,8 @@
 
                             <div class="divide-y divide-zinc-200 space-y-0 dark:divide-zinc-700">
                                 @foreach (auth()->user()->where('id', '!=', auth()->id())->limit(5)->get() as $user)
-                                    <div class="flex items-center justify-between px-4 py-3">
+                                    <a wire:navigate href="{{ route('profile', $user) }}"
+                                        class="flex items-center justify-between px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition">
                                         <div class="flex items-center gap-2">
                                             <div
                                                 class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-rose-500">
@@ -95,7 +96,7 @@
                                         </div>
                                         <!-- Follow Button Component -->
                                         <livewire:follows.follow-button :user="$user" />
-                                    </div>
+                                    </a>
                                 @endforeach
                             </div>
                         </div>

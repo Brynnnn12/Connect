@@ -12,7 +12,7 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-// Public Profile Route dengan Route Model Binding
+// Public Profile Route dengan Volt Component
 Volt::route('profile/{user}', 'pages.profile')->name('profile');
 
 Route::middleware(['auth'])->group(function () {

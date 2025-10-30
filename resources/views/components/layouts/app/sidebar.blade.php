@@ -42,7 +42,7 @@
 
         <!-- Buat Postingan Button -->
         <div class="mb-6 px-2">
-            <button
+            <button onclick="Livewire.dispatch('openCreateModal')"
                 class="w-full rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3 font-semibold text-white shadow-md transition hover:shadow-lg hover:from-pink-600 hover:to-rose-600">
                 ➕ {{ __('Buat') }}
             </button>

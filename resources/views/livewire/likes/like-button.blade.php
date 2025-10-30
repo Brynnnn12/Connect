@@ -50,8 +50,8 @@ new class extends Component {
     }
 }; ?>
 
-<!-- 3. VIEW (HTML) -->
 <div>
+    {{-- 3. VIEW (HTML) --}}
     <button wire:click="toggleLike" class="flex items-center space-x-2 group">
         <!-- Tampilkan ikon hati (SVG) -->
         <svg class="w-5 h-5 transition-all duration-150 {{ $isLiked ? 'text-red-600 group-hover:text-red-500' : 'text-gray-500 group-hover:text-red-600' }}"

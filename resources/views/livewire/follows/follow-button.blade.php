@@ -46,11 +46,14 @@ new class extends Component {
             auth()->user()->following()->attach($this->user->id);
             $this->isFollowing = true;
         }
+
+        // Emit global event untuk profile component refresh data
+        $this->dispatch('followStatusChanged');
     }
 }; ?>
 
-<!-- 3. VIEW (HTML) -->
 <div>
+    {{-- 3. VIEW (HTML) --}}
     @if (auth()->id() !== $user->id)
         <button wire:click="toggleFollow"
             class="rounded-full px-6 py-2 font-semibold text-sm transition duration-200 {{ $isFollowing ? 'bg-zinc-200 text-zinc-900 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-white dark:hover:bg-zinc-600' : 'bg-gradient-to-r from-pink-500 to-rose-500 text-white hover:from-pink-600 hover:to-rose-600' }}">
