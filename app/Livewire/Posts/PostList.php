@@ -5,10 +5,11 @@ namespace App\Livewire\Posts;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class PostList extends Component
 {
-    protected $listeners = ['postCreated' => 'loadPosts', 'postUpdated' => 'loadPosts'];
+    protected $listeners = ['postCreated' => '$refresh', 'postUpdated' => '$refresh', 'postDeleted' => '$refresh'];
 
     public function edit($id)
     {
@@ -17,9 +18,13 @@ class PostList extends Component
 
     public function delete($id)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::find($id);
 
-        // Cek apakah user adalah pemilik post
+        if (!$post) {
+            session()->flash('error', 'Postingan tidak ditemukan atau sudah dihapus!');
+            return;
+        }
+
         if (Auth::id() !== $post->user_id) {
             session()->flash('error', 'Anda tidak bisa menghapus postingan orang lain!');
             return;
@@ -27,15 +32,19 @@ class PostList extends Component
 
         $post->delete();
         session()->flash('message', 'Postingan berhasil dihapus!');
-        $this->dispatch('postUpdated');
+        $this->dispatch('postDeleted');
     }
 
     public function render()
     {
+        // Ambil data terbaru SETIAP KALI render
+        $posts = Post::with(['user'])
+            ->withCount('likes')
+            ->latest()
+            ->get();
+
         return view('livewire.posts.post-list', [
-            'posts' => Post::with('user')
-                ->latest()
-                ->get()
+            'posts' => $posts // Mengirim data terbaru
         ]);
     }
 }

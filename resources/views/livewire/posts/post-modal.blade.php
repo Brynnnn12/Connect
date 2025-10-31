@@ -54,20 +54,12 @@
                         </button>
                         <button type="submit"
                             class="flex-1 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3 font-semibold text-white shadow-md transition hover:from-pink-600 hover:to-rose-600 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-                            wire:loading.attr="disabled" wire:target="save"
-                            disabled="{{ empty($content) ? 'disabled' : '' }}">
+                            wire:loading.attr="disabled" wire:target="save">
                             <span wire:loading.remove wire:target="save">{{ $postId ? 'Update' : 'Posting' }}</span>
                             <span wire:loading wire:target="save">Menyimpan...</span>
                         </button>
                     </div>
 
-                    <!-- Session Flash Message -->
-                    @if (session()->has('message'))
-                        <div
-                            class="rounded-lg bg-green-100 p-3 text-sm text-green-700 dark:bg-green-900 dark:text-green-200">
-                            ✅ {{ session('message') }}
-                        </div>
-                    @endif
                 </form>
             </div>
         </div>

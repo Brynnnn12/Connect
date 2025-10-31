@@ -49,10 +49,17 @@ class PostModal extends Component
             session()->flash('message', 'Postingan berhasil diperbarui!');
         } else {
             // Create new post
-            Post::create([
+            $newPost = Post::create([
                 'user_id' => Auth::id(),
                 'content' => $this->content,
             ]);
+
+            // Load post dengan eager loading untuk memastikan data lengkap
+            $newPost->load(['user', 'likes' => function ($query) {
+                if (Auth::check()) {
+                    $query->where('user_id', Auth::id());
+                }
+            }])->loadCount('likes');
 
             $this->dispatch('postCreated');
             session()->flash('message', 'Postingan berhasil dibuat!');
