@@ -2,17 +2,48 @@
 
 > **Connect** adalah platform social media modern yang dibangun dengan **TALL Stack** (Tailwind CSS, Alpine.js, Laravel, Livewire). Aplikasi ini menyediakan fitur-fitur lengkap seperti Instagram dengan design yang responsif, real-time updates, dan performa optimal untuk experience pengguna yang luar biasa.
 
-## 📌 Tentang Connect
+---
+
+## 🎬 Demo Screenshots
+
+Lihat tampilan aplikasi Connect dalam aksi:
+
+### 🏠 Home / Welcome Page
+
+![Home Page](public/git/home.png)
+_Halaman utama welcome yang menyambut pengguna baru_
+
+### � Dashboard / Main Feed
+
+![Dashboard](public/git/dashboard.png)
+_Feed utama dengan postingan dari user yang diikuti, like button, dan suggested users_
+
+### 👤 User Profile Page
+
+![Profile](public/git/profile.png)
+_Halaman profil user dengan statistik (posts, followers, following) dan semua postingan user_
+
+---
+
+## �📌 Tentang Connect
 
 **Connect** adalah solusi social media lengkap yang memungkinkan user untuk:
 
--   📝 Membuat dan berbagi postingan
--   ❤️ Memberikan like pada postingan
--   👥 Follow dan unfollow user
--   👤 Melihat profil user publik
--   💬 Interaksi real-time tanpa page refresh
+-   📝 **Membuat & Berbagi Postingan** - Tulis pemikiran Anda dan bagikan dengan komunitas
+-   ❤️ **Memberikan Like** - Apresiasi postingan dari user lain secara real-time
+-   👥 **Follow/Unfollow User** - Ikuti user favorit Anda dan bangun komunitas
+-   👤 **Lihat Profil Public** - Jelajahi profil user lain dengan statistik lengkap
+-   💬 **Interaksi Real-time** - Semua update terjadi secara instant tanpa page refresh
+-   🌙 **Dark Mode** - Mode gelap yang nyaman untuk mata
 
 Dibangun dengan teknologi terkini dan best practices modern development, Connect siap untuk scale dan production use.
+
+### 🎯 Target Pengguna
+
+-   👨‍💻 Developer yang ingin belajar TALL Stack
+-   🚀 Startup yang membutuhkan social media MVP
+-   🎓 Siswa yang ingin portfolio project
+-   🏢 Perusahaan yang membutuhkan internal community platform
 
 ---
 
@@ -27,9 +58,9 @@ Dibangun dengan teknologi terkini dan best practices modern development, Connect
 | **L** - Laravel      | Backend framework      | Powerful, secure, well-tested          |
 | **L** - Livewire     | Component framework    | Real-time UI tanpa JavaScript kompleks |
 
-Dengan TALL Stack, Anda bisa membuat aplikasi interaktif full-stack **hanya dengan PHP**, tanpa perlu menguasai JavaScript framework yang kompleks.
+Dengan TALL Stack, Anda bisa membuat aplikasi interaktif full-stack **hanya dengan PHP**, tanpa perlu menguasai JavaScript framework yang kompleks seperti Vue atau React.
 
-### Architecture Overview
+### 🏗️ Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -37,28 +68,43 @@ Dengan TALL Stack, Anda bisa membuat aplikasi interaktif full-stack **hanya deng
 │  ┌────────────────────────────────────────────────┐ │
 │  │ Tailwind CSS + Alpine.js                       │ │
 │  │ (Beautiful UI + Client Interactivity)          │ │
+│  │ - Responsive Design                            │ │
+│  │ - Dark Mode Support                            │ │
+│  │ - Smooth Animations                            │ │
 │  └────────────────────────────────────────────────┘ │
 └──────────────────┬──────────────────────────────────┘
-                   │ WebSocket / HTTP
+                   │ WebSocket / HTTP (Real-time)
 ┌──────────────────▼──────────────────────────────────┐
 │         SERVER SIDE (Laravel Backend)               │
 │  ┌────────────────────────────────────────────────┐ │
-│  │ Livewire Components                            │ │
-│  │ (Real-time reactive components)                │ │
+│  │ Livewire Components (Volt Syntax)              │ │
+│  │ - Real-time reactive components                │ │
+│  │ - Event dispatching & listening                │ │
+│  │ - Computed properties with caching             │ │
 │  └────────────────────────────────────────────────┘ │
 │  ┌────────────────────────────────────────────────┐ │
 │  │ Laravel Routes & Controllers                   │ │
-│  │ (Request handling & business logic)            │ │
+│  │ - Request handling                             │ │
+│  │ - Business logic                               │ │
+│  │ - Authentication & Authorization               │ │
 │  └────────────────────────────────────────────────┘ │
 │  ┌────────────────────────────────────────────────┐ │
 │  │ Eloquent ORM & Models                          │ │
-│  │ (Database interaction)                         │ │
+│  │ - Database interaction                         │ │
+│  │ - Relationships & eager loading                │ │
+│  │ - Query optimization                           │ │
 │  └────────────────────────────────────────────────┘ │
 └──────────────────┬──────────────────────────────────┘
-                   │
+                   │ SQL Queries
 ┌──────────────────▼──────────────────────────────────┐
-│              DATABASE (MySQL)                       │
-│  Users | Posts | Likes | Followers                 │
+│              DATABASE (MySQL 8.0+)                  │
+│  ┌────────────────────────────────────────────────┐ │
+│  │ Tables:                                        │ │
+│  │ - users (authentication & profile)             │ │
+│  │ - posts (user content)                         │ │
+│  │ - likes (user engagement)                      │ │
+│  │ - followers (user relationships)               │ │
+│  └────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -66,44 +112,166 @@ Dengan TALL Stack, Anda bisa membuat aplikasi interaktif full-stack **hanya deng
 
 ## ✨ Fitur Utama
 
-### 📱 Posting & Dashboard
+### 📱 Posting & Dashboard System
 
--   ✅ **Buat Postingan** - Modal interaktif untuk membuat postingan baru
--   ✅ **Edit Postingan** - Sunting postingan yang sudah dibuat
--   ✅ **Hapus Postingan** - Hapus postingan dengan konfirmasi
--   ✅ **Feed Real-time** - Tampilkan postingan dari user yang diikuti
--   ✅ **Validation** - Validasi konten postingan (min 3 karakter, max 2000)
+**Membuat Postingan:**
 
-### ❤️ Like System
+-   ✅ Modal interaktif untuk membuat postingan baru
+-   ✅ Real-time character counter dan validation
+-   ✅ Minimal 3 karakter, maksimal 2000 karakter
+-   ✅ Postingan langsung muncul di feed tanpa refresh
+-   ✅ Timestamp otomatis dan timezone awareness
 
--   ✅ **Like/Unlike** - Berikan atau hapus like pada postingan
--   ✅ **Like Counter** - Hitung jumlah like secara real-time
--   ✅ **Like Status** - Icon hati berubah warna saat di-like
--   ✅ **Smooth Animation** - Transisi smooth saat like/unlike
+**Mengedit Postingan:**
 
-### 👥 Follow System
+-   ✅ Edit postingan milik sendiri melalui menu actions
+-   ✅ Modal membuka dengan konten sebelumnya
+-   ✅ Konfirmasi sebelum update
+-   ✅ Riwayat updated_at otomatis tercatat
 
--   ✅ **Follow/Unfollow** - Ikuti atau berhenti mengikuti user
--   ✅ **Follower Count** - Tampilkan jumlah pengikut dan mengikuti
--   ✅ **Suggested Users** - Rekomendasi user untuk diikuti
--   ✅ **Follow Button** - Status button berubah saat di-follow
--   ✅ **Real-time Updates** - Follower count update instant tanpa refresh
+**Menghapus Postingan:**
 
-### 👤 User Profile
+-   ✅ Soft delete dengan cascading relationships
+-   ✅ Konfirmasi dengan wire:confirm dialog
+-   ✅ Hanya pemilik postingan yang bisa menghapus
+-   ✅ Instant removal dari feed
 
--   ✅ **Public Profile** - Lihat profil user lain (publik)
--   ✅ **Profile Stats** - Tampilkan postingan, pengikut, mengikuti
--   ✅ **User Feed** - Tampilkan semua postingan user
--   ✅ **Edit Profile** - Sunting nama dan email
--   ✅ **Profile Picture** - Avatar gradient dengan inisial
+**Dashboard Feed:**
 
-### 🎨 Design & UX
+-   ✅ Menampilkan postingan dari user yang diikuti
+-   ✅ Order by created_at terbaru
+-   ✅ Pagination untuk performance
+-   ✅ Infinite scroll capability (dapat di-extend)
+-   ✅ Suggested users untuk follow
 
--   ✅ **Instagram-like Design** - Desain modern seperti Instagram
--   ✅ **Responsive Layout** - Bekerja sempurna di desktop & mobile
--   ✅ **Dark Mode** - Support dark mode penuh
--   ✅ **Smooth Transitions** - Animasi smooth di setiap interaksi
--   ✅ **Loading States** - Feedback visual saat loading
+### ❤️ Like System - Real-time Engagement
+
+**Like/Unlike Features:**
+
+-   ✅ Klik icon hati untuk like postingan
+-   ✅ Icon berubah merah saat sudah di-like
+-   ✅ Counter update instantly (real-time)
+-   ✅ Smooth animation saat like/unlike
+-   ✅ Prevent self-like functionality
+-   ✅ Like status persist di database
+
+**Performance Optimized:**
+
+-   ✅ Eager loading dengan `with('likes')`
+-   ✅ Query count optimization dengan `loadCount()`
+-   ✅ Computed properties untuk caching
+-   ✅ Efficient database queries
+
+**User Experience:**
+
+-   ✅ Instant visual feedback
+-   ✅ Loading states saat processing
+-   ✅ Disabled state sebelum login
+-   ✅ Like count bubble tampil di setiap post
+
+### 👥 Follow System - Build Community
+
+**Follow/Unfollow:**
+
+-   ✅ Follow user dari profile page
+-   ✅ Button berubah status "Ikuti" ↔ "Mengikuti"
+-   ✅ Real-time follower count update
+-   ✅ Prevent self-follow functionality
+-   ✅ Cascade delete saat user dihapus
+
+**Suggested Users:**
+
+-   ✅ Rekomendasi user untuk diikuti
+-   ✅ Exclude sudah di-follow users
+-   ✅ Random selection untuk variasi
+-   ✅ Click-to-follow tanpa perlu buka profile
+
+**Follower/Following Stats:**
+
+-   ✅ Tampilkan jumlah pengikut (followers)
+-   ✅ Tampilkan jumlah sedang diikuti (following)
+-   ✅ Update real-time saat follow/unfollow
+-   ✅ Clickable untuk melihat daftar followers
+
+**Real-time Event Dispatch:**
+
+-   ✅ Event `followStatusChanged` dipancarkan
+-   ✅ Profile component listen ke event
+-   ✅ Count otomatis ter-refresh
+-   ✅ Zero latency updates
+
+### 👤 User Profile - Public Profiles
+
+**Public Profile View:**
+
+-   ✅ Buka dengan route `/profile/{user-id}`
+-   ✅ Lihat profil user lain (publicly accessible)
+-   ✅ Avatar gradient dengan inisial user
+-   ✅ Nama dan info dasar user
+
+**Profile Statistics:**
+
+-   ✅ Total postingan milik user
+-   ✅ Jumlah followers yang mengikuti
+-   ✅ Jumlah user yang sedang diikuti
+-   ✅ Real-time count update
+
+**User's Posts Display:**
+
+-   ✅ Tampilkan semua postingan user (desc by created_at)
+-   ✅ Setiap post bisa di-like
+-   ✅ Empty state jika belum ada postingan
+-   ✅ Post with like button dan timestamp
+
+**Edit Own Profile:**
+
+-   ✅ Access melalui menu profil di sidebar
+-   ✅ Edit nama lengkap
+-   ✅ Edit email address
+-   ✅ Form validation & error messages
+-   ✅ Success notification setelah update
+
+### 🎨 Design & UX Features
+
+**Instagram-like Design:**
+
+-   ✅ Modern card-based layout
+-   ✅ Sidebar navigation dengan Flux UI
+-   ✅ Post cards dengan detailed actions
+-   ✅ Hover effects dan interactive states
+-   ✅ Pink/Rose gradient theme
+
+**Responsive Layout:**
+
+-   ✅ Mobile-first responsive design
+-   ✅ Bekerja sempurna di semua screen sizes
+-   ✅ Grid responsive untuk posts
+-   ✅ Hamburger menu untuk mobile
+-   ✅ Touch-friendly button sizes
+
+**Dark Mode Support:**
+
+-   ✅ Full dark mode implementation
+-   ✅ Toggle dark mode di settings
+-   ✅ Persistent dark mode preference
+-   ✅ Smooth transitions antara mode
+-   ✅ Tailwind dark: classes
+
+**Smooth Transitions & Animations:**
+
+-   ✅ Like button heart animation
+-   ✅ Modal open/close transitions
+-   ✅ Hover effects pada buttons
+-   ✅ Fade in untuk new posts
+-   ✅ Loading skeleton screens
+
+**Loading States & Feedback:**
+
+-   ✅ Button loading state dengan spinner
+-   ✅ Disabled state saat processing
+-   ✅ Success/error notifications
+-   ✅ Toast messages untuk feedback
+-   ✅ Empty state illustrations
 
 ---
 
@@ -240,10 +408,11 @@ Real-time reactive components untuk Laravel
 -   [Instalasi](#instalasi)
 -   [Menjalankan Aplikasi](#menjalankan-aplikasi)
 -   [Struktur Folder](#struktur-folder)
--   [Livewire Component Guide](#livewire-component-guide)
--   [Event Handling & Real-time](#event-handling--real-time)
--   [Fitur Detail](#fitur-detail)
--   [Database Schema](#database-schema)
+-   [Fitur Detail - Flow & Use Cases](#-fitur-detail---flow--use-cases)
+-   [Component Architecture Breakdown](#-component-architecture-breakdown)
+-   [Real-time Event Flow](#-real-time-event-flow---detailed-sequence)
+-   [Database Schema](#-database-schema)
+-   [Livewire Component Guide](#-livewire-component-guide---penjelasan-lengkap)
 -   [Production Deployment](#production-deployment)
 -   [Security Best Practices](#security-best-practices)
 -   [TALL Stack Best Practices](#tall-stack-best-practices)
@@ -466,304 +635,1125 @@ Connect/
 
 ---
 
-## 🎯 Livewire Component Guide
+## 🎯 Livewire Component Guide - Penjelasan Lengkap
 
 ### Apa itu Livewire Component?
 
-Livewire adalah framework yang membuat Anda bisa membuat interactive components menggunakan **hanya PHP** - tanpa JavaScript kompleks.
+Livewire adalah framework revolusioner yang memungkinkan Anda membuat interactive components menggunakan **hanya PHP** - tanpa perlu menguasai JavaScript framework kompleks seperti Vue atau React.
+
+**Keuntungan Livewire:**
+
+```
+Traditional: PHP → Backend → JSON Response → JavaScript → DOM Update
+Livewire:    PHP → Backend → HTML Delta → Livewire JS → DOM Update (MUCH SIMPLER!)
+```
+
+**Bagaimana Livewire Bekerja:**
+
+1. **User berinteraksi** di browser (klik button, typing, dll)
+2. **Livewire JavaScript** menangkap event
+3. **Request dikirim** ke server dengan data terbaru
+4. **Component PHP** di-render ulang
+5. **HTML delta** dihitung (hanya bagian yang berubah)
+6. **Browser menerima delta** dan update DOM secara cerdas
+7. **UI ter-update** tanpa full page refresh
+
+### Contoh Livewire Component Sederhana
 
 ```php
 <?php
 use Livewire\Volt\Component;
 
 new class extends Component {
-    public string $message = '';
+    // 1. STATE (Data yang reactive)
+    public string $message = 'Hello World';
+    public int $count = 0;
+
+    // 2. COMPUTED PROPERTIES (Cached calculations)
+    #[Livewire\Attributes\Computed]
+    public function messageLength()
+    {
+        return strlen($this->message);
+    }
+
+    // 3. METHODS (Logic yang dipanggil)
+    public function increment()
+    {
+        $this->count++;
+    }
 
     public function submit()
     {
-        // Logic di sini dijalankan di server
-        // UI update otomatis tanpa JavaScript!
+        // Ini dijalankan di server, bukan client!
+        logger('Message submitted: ' . $this->message);
     }
 }; ?>
 
-<div>
-    <input wire:model="message" />
-    <button wire:click="submit">Send</button>
+<!-- HTML View -->
+<div class="space-y-4">
+    <!-- wire:model = Two-way binding -->
+    <input wire:model="message"
+           class="border rounded px-3 py-2"
+           placeholder="Type something...">
+
+    <!-- Tampilkan nilai property -->
+    <p>You typed: {{ $message }}</p>
+    <p>Length: {{ $this->messageLength }} characters</p>
+
+    <!-- wire:click = Event listener -->
+    <button wire:click="increment"
+            class="bg-blue-500 text-white px-4 py-2 rounded">
+        Increment: {{ $count }}
+    </button>
+
+    <!-- Form submission -->
+    <button wire:click="submit"
+            class="bg-green-500 text-white px-4 py-2 rounded">
+        Submit
+    </button>
 </div>
 ```
 
-### Component Struktur di Connect
+### Component Structure di Connect
 
-Connect menggunakan **Volt** - syntaks terbaru Livewire yang single-file component:
+Connect menggunakan **Volt** - syntaks terbaru Livewire (single-file components):
 
 ```
 resources/views/livewire/
 ├── posts/
-│   ├── post-modal.blade.php      # Modal create/edit posts
-│   └── post-list.blade.php       # List posts component
+│   ├── post-modal.blade.php          # Create/Edit Modal
+│   │   └── State: $postId, $content, $showModal
+│   │   └── Methods: openModal(), edit(), save(), delete()
+│   │
+│   └── post-list.blade.php           # Feed Display
+│       └── State: $posts (Collection)
+│       └── Loops through posts dengan @foreach
+│
 ├── likes/
-│   └── like-button.blade.php     # Like button dengan counter
+│   └── like-button.blade.php         # Like Button Component
+│       └── State: $post (Post model), $isLiked, $likeCount
+│       └── Methods: mount(), toggleLike()
+│       └── Emits: Dispatch 'postCreated' event
+│
 ├── follows/
-│   └── follow-button.blade.php   # Follow/unfollow button
+│   └── follow-button.blade.php       # Follow Button Component
+│       └── State: $user (User model), $isFollowing
+│       └── Methods: mount(), toggleFollow()
+│       └── Emits: Dispatch 'followStatusChanged' event
+│
 └── pages/
-    └── profile.blade.php         # User profile page
+    └── profile.blade.php             # User Profile Page (Volt Route)
+        └── State: $user, $posts, $postCount, $followersCount
+        └── Listeners: #[On('followStatusChanged')]
+        └── Methods: mount(), loadUserData(), refreshFollowerCount()
 ```
 
-### Livewire Directives di Connect
+### Livewire Directives Detail
 
-#### `wire:model` - Two-way Data Binding
+#### 1️⃣ `wire:model` - Two-way Reactive Binding
 
 ```blade
-<!-- Input automatically sync dengan property PHP -->
-<input wire:model="content" placeholder="Tulis postingan...">
+<!-- Basic binding - updates on blur -->
+<input wire:model="message" />
 
-<!-- Dengan debounce untuk better performance -->
-<input wire:model.debounce.300ms="content">
+<!-- Real-time - updates as you type -->
+<input wire:model.live="message" />
+
+<!-- Debounce - waits 300ms after stop typing -->
+<input wire:model.debounce.300ms="message" />
+
+<!-- Lazy - updates only on blur -->
+<input wire:model.lazy="message" />
+
+<!-- Modifiers dapat di-combine -->
+<textarea wire:model.live.debounce.500ms="content"></textarea>
 ```
 
-#### `wire:click` - Event Listener
+#### 2️⃣ `wire:click` - Event Listener
 
 ```blade
-<!-- Trigger method ketika button diklik -->
-<button wire:click="toggleFollow">Ikuti</button>
+<!-- Simple method call -->
+<button wire:click="toggleLike">Like</button>
 
-<!-- Dengan konfirmasi -->
+<!-- Pass parameters -->
+<button wire:click="delete({{ $post->id }})">Delete</button>
+
+<!-- Confirmation dialog -->
 <button wire:click="delete({{ $post->id }})"
-        wire:confirm="Hapus postingan ini?">Hapus</button>
+        wire:confirm="Are you sure?">Delete</button>
+
+<!-- Debounce - prevent multiple clicks -->
+<button wire:click.debounce="save">Save</button>
+
+<!-- Prevent default -->
+<form wire:submit.prevent="handleSubmit">
+    <input type="email" />
+    <button type="submit">Submit</button>
+</form>
 ```
 
-#### `wire:navigate` - SPA-like Navigation
+#### 3️⃣ `wire:navigate` - SPA-like Navigation
 
 ```blade
 <!-- Navigate tanpa full page reload -->
 <a wire:navigate href="{{ route('profile', $user) }}">
     {{ $user->name }}
 </a>
+
+<!-- Dengan parameter -->
+<a wire:navigate href="/profile/{{ $user->id }}">View Profile</a>
+
+<!-- Back button -->
+<button wire:navigate.back>Go Back</button>
 ```
 
-#### `wire:key` - Component Tracking
+#### 4️⃣ `wire:key` - Component Tracking dalam Loop
 
 ```blade
-<!-- Unique identifier untuk component dalam list -->
-<livewire:likes.like-button :post="$post"
-                             wire:key="like-button-{{ $post->id }}" />
+<!-- PENTING: Always use wire:key dalam @foreach! -->
+@foreach ($posts as $post)
+    <livewire:like-button :post="$post"
+                          wire:key="like-{{ $post->id }}" />
+@endforeach
+
+<!-- Tanpa wire:key, Livewire kesulitan track component -->
+<!-- Component bisa ter-mix atau hilang saat list berubah! -->
+```
+
+#### 5️⃣ Computed Properties - Cached Calculations
+
+```php
+// ✅ BAIK - Cached automatic
+#[Livewire\Attributes\Computed]
+public function isFollowing()
+{
+    return auth()->user()->following()
+        ->where('following_user_id', $this->user->id)
+        ->exists();
+}
+
+// ❌ BURUK - Query setiap kali diakses
+public function getIsFollowing()
+{
+    return auth()->user()->following()
+        ->where('following_user_id', $this->user->id)
+        ->exists();
+}
 ```
 
 ---
 
-## ⚡ Event Handling & Real-time Features
+## ⚡ Event Handling & Real-time Flow Dijelaskan
 
-### Bagaimana Real-time Bekerja di Connect
+### Bagaimana Real-time Update Bekerja?
 
-Connect menggunakan **Livewire event dispatching** untuk real-time updates:
+Connect menggunakan **Livewire event dispatching** - callback pattern untuk inter-component communication:
 
 ```
-User A clicks "Follow Button"
-          ↓
-followButton.blade.php fires toggleFollow()
-          ↓
-Database relationship updated (attach/detach)
-          ↓
-$this->dispatch('followStatusChanged')
-          ↓
-profile.blade.php listener catches event
-          ↓
-#[On('followStatusChanged')] refreshFollowerCount()
-          ↓
-Profile re-renders with new follower count
-          ↓
-Browser sees updated count instantly ✨
+┌─────────────────────────────────────────────────────────┐
+│ 1. USER CLICKS FOLLOW BUTTON                            │
+│    Button di follow-button.blade.php di-klik            │
+└──────────────────┬──────────────────────────────────────┘
+                   │
+┌──────────────────▼──────────────────────────────────────┐
+│ 2. FOLLOW BUTTON COMPONENT FIRES METHOD                 │
+│    public function toggleFollow() {                     │
+│        auth()->user()->following()->toggle($user->id);  │
+│        $this->isFollowing = !$this->isFollowing;        │
+│        $this->dispatch('followStatusChanged');          │
+│    }                                                     │
+└──────────────────┬──────────────────────────────────────┘
+                   │
+┌──────────────────▼──────────────────────────────────────┐
+│ 3. DATABASE UPDATED                                     │
+│    - Relationship di-attach/di-detach                   │
+│    - followers table ter-update                         │
+└──────────────────┬──────────────────────────────────────┘
+                   │
+┌──────────────────▼──────────────────────────────────────┐
+│ 4. EVENT DISPATCHED (Global)                            │
+│    $this->dispatch('followStatusChanged')               │
+│    - Event name dibroadcast                             │
+│    - Semua component yang listen akan notified          │
+└──────────────────┬──────────────────────────────────────┘
+                   │
+┌──────────────────▼──────────────────────────────────────┐
+│ 5. PROFILE COMPONENT LISTENER ACTIVATED                 │
+│    #[On('followStatusChanged')]                         │
+│    public function refreshFollowerCount() {             │
+│        $this->user->refresh();                          │
+│        $this->loadUserData();                           │
+│    }                                                     │
+└──────────────────┬──────────────────────────────────────┘
+                   │
+┌──────────────────▼──────────────────────────────────────┐
+│ 6. PROFILE COMPONENT RE-RENDERS                         │
+│    - Data di-reload dari database                       │
+│    - $followersCount di-update                          │
+│    - HTML baru di-generate                              │
+└──────────────────┬──────────────────────────────────────┘
+                   │
+┌──────────────────▼──────────────────────────────────────┐
+│ 7. LIVEWIRE DELTA DIFFING                               │
+│    - Hanya bagian yang berubah dihitung                 │
+│    - HTML delta dikirim ke browser                      │
+│    - Not entire component!                              │
+└──────────────────┬──────────────────────────────────────┘
+                   │
+┌──────────────────▼──────────────────────────────────────┐
+│ 8. DOM UPDATED IN BROWSER                               │
+│    - Follower count UI ter-update                       │
+│    - Smooth transition (Livewire.js handles it)         │
+│    - User sees instant update ✨                        │
+│    - No page refresh needed!                            │
+└─────────────────────────────────────────────────────────┘
 ```
 
-### Event Listener Pattern
+### Real-time Features di Connect dengan Detail
 
-#### Follow Button (Dispatcher)
+| Feature         | Dispatcher Component    | Listener Component  | Event Name              | Latency |
+| --------------- | ----------------------- | ------------------- | ----------------------- | ------- |
+| **Like Post**   | like-button.blade.php   | like-button.blade   | (internal state update) | <50ms   |
+| **Follow User** | follow-button.blade.php | profile.blade.php   | `followStatusChanged`   | <100ms  |
+| **Create Post** | post-modal.blade.php    | post-list.blade.php | (parent refresh)        | <200ms  |
+| **Edit Post**   | post-modal.blade.php    | post-list.blade.php | (parent refresh)        | <200ms  |
+| **Delete Post** | post-list.blade.php     | post-list.blade.php | (list update)           | <150ms  |
+
+---
+
+## 🎯 Fitur Detail - Flow & Use Cases
+
+### 1. 📝 Posting System - Complete Flow
+
+#### A. Membuat Postingan
+
+**Step-by-step flow:**
+
+```
+User Flow:
+1. Klik tombol "➕ Buat" di sidebar
+   ↓
+2. PostModal component opens (wire:click trigger)
+   ↓
+3. Modal form muncul dengan textarea
+   ↓
+4. User typing → wire:model.debounce updates $content
+   ↓
+5. Real-time validation: min 3 char, max 2000 char
+   ↓
+6. Button "Posting" aktif saat content valid
+   ↓
+7. Klik "Posting" → wire:click="save" fired
+   ↓
+8. Laravel validates content
+   ↓
+9. Database: INSERT ke posts table
+   ↓
+10. PostList component refresh
+   ↓
+11. New post muncul di TOP feed
+   ↓
+12. Modal closes, user sees postingan mereka!
+```
+
+**Backend Logic:**
 
 ```php
-// resources/views/livewire/follows/follow-button.blade.php
-public function toggleFollow(): void
+// resources/views/livewire/posts/post-modal.blade.php
+public function save(): void
 {
-    auth()->user()->following()->toggle($this->user->id);
-    $this->isFollowing = !$this->isFollowing;
+    $validated = $this->validate([
+        'content' => 'required|min:3|max:2000',
+    ]);
 
-    // Dispatch event untuk profile component
-    $this->dispatch('followStatusChanged');
+    if ($this->postId) {
+        // Update existing post
+        $post = Post::findOrFail($this->postId);
+        $this->authorize('update', $post);
+        $post->update($validated);
+    } else {
+        // Create new post
+        auth()->user()->posts()->create($validated);
+    }
+
+    $this->resetForm();
+    $this->dispatch('postCreated'); // Event for listeners
 }
 ```
 
-#### Profile Page (Listener)
+#### B. Mengedit Postingan
+
+```
+1. Hover ke post milik sendiri
+2. Klik menu icon (...)
+3. Pilih "Edit"
+   ↓
+4. PostModal opens dengan $postId & old content loaded
+5. wire:model binding menampilkan konten lama
+6. User edit konten
+7. wire:model.debounce updates $content real-time
+8. Klik "Update"
+9. Backend validates & updates database
+10. PostList refresh dengan konten baru
+11. Updated timestamp otomatis tercatat
+```
+
+#### C. Menghapus Postingan
+
+```
+1. Hover ke post milik sendiri
+2. Klik menu icon (...)
+3. Pilih "Hapus"
+4. wire:confirm dialog appears: "Hapus postingan ini?"
+5. User klik "OK"
+   ↓
+6. Backend authorize check (only owner)
+7. Post soft-deleted dari database
+8. PostList refresh
+9. Post hilang dari feed instant
+```
+
+### 2. ❤️ Like System - Real-time Counter
+
+#### Cara Kerja Like Button
+
+```
+Component: resources/views/livewire/likes/like-button.blade.php
+
+State:
+- $post: The post being liked
+- $isLiked: boolean - sudah di-like atau belum
+- $likeCount: integer - total like count
+
+Mount flow:
+1. Component mount
+2. Check if current user already liked this post
+3. Load total like count from database
+4. Set $isLiked & $likeCount properties
+
+User interaction:
+1. User click ❤️ icon
+2. wire:click="toggleLike" fired
+3. Backend:
+   - If $isLiked: user()->likes()->detach($post->id)
+   - If not: user()->likes()->attach($post->id)
+4. Toggle $isLiked state
+5. Update $likeCount (increment/decrement)
+6. Component re-render
+7. UI update:
+   - Icon changes red (if liked)
+   - Counter updates
+   - Smooth animation
+```
+
+**Database interaction:**
 
 ```php
-// resources/views/livewire/pages/profile.blade.php
+// likes table (pivot table)
+- user_id, post_id, created_at
+
+public function toggleLike(): void
+{
+    if ($this->isLiked) {
+        auth()->user()->likes()->detach($this->post->id);
+        $this->isLiked = false;
+        $this->likeCount--;
+    } else {
+        auth()->user()->likes()->attach($this->post->id);
+        $this->isLiked = true;
+        $this->likeCount++;
+    }
+}
+```
+
+### 3. 👥 Follow System - Event-Driven Real-time
+
+#### Follow Button dengan Event Dispatching
+
+```
+Component: resources/views/livewire/follows/follow-button.blade.php
+
+State:
+- $user: The user to follow
+- $isFollowing: boolean - status follow
+
+Flow saat user klik Follow button:
+
+1. User klik "Ikuti" button
+2. wire:click="toggleFollow" triggered
+3. Backend authorization check (can't follow self)
+4. Database:
+   - If following: followers.detach($user->id)
+   - If not: followers.attach($user->id)
+5. Toggle $isFollowing state
+6. DISPATCH EVENT:
+   $this->dispatch('followStatusChanged');
+7. Event broadcasted globally
+8. Profile component (parent) listener catches it
+9. Profile #[On('followStatusChanged')] method called
+10. Profile refreshFollowerCount() executes
+11. User data refreshed from database
+12. Follower count updated
+13. Profile re-renders
+14. UI updates instantly ✨
+```
+
+**Real-time event flow diagram:**
+
+```
+┌─────────────────────────────────────────────────────────┐
+│ Follow Button Clicked                                   │
+└──────────────────────┬──────────────────────────────────┘
+                       │
+┌──────────────────────▼──────────────────────────────────┐
+│ Backend Processing:                                     │
+│ - Authorization check                                   │
+│ - Attach/detach relationship                            │
+│ - Toggle $isFollowing state                             │
+│ - $this->dispatch('followStatusChanged')                │
+└──────────────────────┬──────────────────────────────────┘
+                       │
+┌──────────────────────▼──────────────────────────────────┐
+│ Event Broadcast (Global)                                │
+│ 'followStatusChanged' event available to all components │
+└──────────────────────┬──────────────────────────────────┘
+                       │
+┌──────────────────────▼──────────────────────────────────┐
+│ Profile Component Listener Triggers:                    │
+│ #[On('followStatusChanged')]                            │
+│ public function refreshFollowerCount() { }              │
+└──────────────────────┬──────────────────────────────────┘
+                       │
+┌──────────────────────▼──────────────────────────────────┐
+│ Profile Data Refresh:                                   │
+│ - $user->refresh() (reload from DB)                     │
+│ - $user->loadCount(['followers', 'following'])          │
+│ - Update $followersCount & $followingCount              │
+│ - Component re-renders                                  │
+└──────────────────────┬──────────────────────────────────┘
+                       │
+┌──────────────────────▼──────────────────────────────────┐
+│ Browser Updates:                                        │
+│ - Livewire JS detects changes                           │
+│ - Calculates HTML delta (only changed parts)            │
+│ - Updates DOM smartly                                   │
+│ - Follower count increases/decreases                    │
+│ - Follow button changes text: "Ikuti" ↔ "Mengikuti"     │
+│ - All instant, no page refresh! ✨                      │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 4. 👤 User Profile - Public Views
+
+#### Profile Page Structure
+
+```
+/profile/{user-id}
+
+Components:
+├── Header Section
+│   ├── Avatar (gradient dengan inisial)
+│   ├── User name
+│   ├── Follow/Edit button (conditional)
+│   │
+│   └── Stats (3 columns):
+│       ├── Posts count
+│       ├── Followers count
+│       └── Following count
+│
+└── Posts Section
+    ├── "Postingan" heading
+    ├── If posts exist:
+    │   └── @foreach $posts
+    │       └── Post card dengan like button
+    │
+    └── If no posts:
+        └── Empty state message
+```
+
+**Volt Component Route:**
+
+```php
+// routes/web.php
+Volt::route('profile/{user}', 'pages.profile')->name('profile');
+
+// Automatic Route Model Binding!
+// Laravel auto-resolve {user} parameter
+```
+
+---
+
+## 🏗️ Component Architecture Breakdown
+
+### Apa itu Livewire Component?
+
+**Traditional Web Development:**
+
+```
+User Action → Submit Form → Page Reload → Database → New Page HTML
+             (memakan waktu 500ms+)
+```
+
+**Livewire Real-time:**
+
+```
+User Action → wire:click → Livewire JS → Backend → Partial Update → DOM Change
+             (hanya ~50-100ms)
+```
+
+### Component Tree di Connect
+
+```
+Dashboard (Main Feed)
+├── PostModal (Modal untuk create/edit post)
+│   └── Form inputs dengan validasi real-time
+│
+├── PostList (Feed container)
+│   └── @foreach $posts
+│       └── Post Card
+│           ├── LikeButton (❤️ tombol dengan wire:key)
+│           ├── Post content & username
+│           └── Created at timestamp
+│
+└── Suggested Users Section
+    └── @foreach $suggestedUsers
+        └── User Card
+            └── FollowButton
+
+Profile Page
+├── Profile Header
+│   ├── Avatar & Info
+│   ├── Stats (Posts, Followers, Following)
+│   └── FollowButton (if visiting other's profile)
+│
+└── User Posts Section
+    └── @foreach $posts
+        └── Post Card
+            └── LikeButton (PENTING: dengan wire:key!)
+```
+
+### Key Concepts Explained
+
+#### 1. Wire Directives
+
+**wire:model** - Two-way data binding
+
+```blade
+<!-- Input real-time synced to backend -->
+<input wire:model="content" placeholder="Type...">
+<!-- Setiap keypress → backend update $content -->
+
+<!-- Dengan debounce (delay 500ms) -->
+<input wire:model.debounce="content">
+
+<!-- Dengan lazy (hanya on blur) -->
+<input wire:model.lazy="content">
+```
+
+**wire:click** - Fire method on click
+
+```blade
+<!-- Click button → toggleLike() method executed -->
+<button wire:click="toggleLike">❤️ Like</button>
+
+<!-- Dengan parameter -->
+<button wire:click="delete({{ $post->id }})">Delete</button>
+
+<!-- Dengan confirm dialog -->
+<button wire:click="$confirm('Delete?', () => delete())">Delete</button>
+```
+
+**wire:navigate** - SPA-like navigation
+
+```blade
+<!-- Navigate tanpa full page refresh -->
+<a wire:navigate href="/profile/{{ $user->id }}">
+    View Profile
+</a>
+
+<!-- vs regular link (full refresh) -->
+<a href="/profile/{{ $user->id }}">View Profile</a>
+```
+
+**wire:key** - Critical untuk components dalam loop!
+
+```blade
+<!-- ❌ TANPA wire:key - BUGGY! -->
+@foreach($posts as $post)
+    <livewire:likes.like-button :post="$post" />
+@endforeach
+
+<!-- ✅ DENGAN wire:key - CORRECT! -->
+@foreach($posts as $post)
+    <livewire:likes.like-button :post="$post"
+        wire:key="like-button-{{ $post->id }}"
+    />
+@endforeach
+
+<!-- Masalah tanpa wire:key:
+   - Like buttons bisa hilang saat list di-refresh
+   - Component state tertukar saat item dihapus
+   - Real-time updates tidak reliable
+
+   Solusi dengan wire:key:
+   - Livewire tahu component mana yang mana
+   - Preserves state per unique key
+   - Reliable tracking dalam loops
+-->
+```
+
+**Computed Properties** - Cached calculations
+
+```php
+<?php
+use Livewire\Volt\Component;
+use Livewire\Attributes\Computed;
+
+new class extends Component {
+    public int $posts = 10;
+
+    // Cached calculation - hanya update saat $posts berubah
+    #[Computed]
+    public function postCount()
+    {
+        // This runs once dan hasil di-cache
+        // Tidak run ulang sampai $posts changed
+        return $this->posts * 2; // Simulate database query
+    }
+};
+?>
+
+<div>
+    <!-- Call computed property -->
+    <p>Total: {{ $this->postCount }}</p>
+</div>
+```
+
+#### 2. Event Dispatching Pattern
+
+**Dispatch** - Send event dari component
+
+```php
+// follow-button.blade.php
+$this->dispatch('followStatusChanged');
+
+// Like button bisa dispatch juga
+$this->dispatch('postLiked', postId: $this->post->id);
+```
+
+**Listen** - Catch event di parent component
+
+```php
+// profile.blade.php
+use Livewire\Attributes\On;
+
 #[On('followStatusChanged')]
 public function refreshFollowerCount(): void
 {
-    // Reload semua data dari database
     $this->user->refresh();
     $this->loadUserData();
 }
+
+#[On('postLiked')]
+public function handlePostLiked($postId): void
+{
+    // Do something when post liked
+}
 ```
 
-### Real-time Features di Connect
+#### 3. Component Lifecycle
 
-| Feature         | Mechanism                     | Benefit           |
-| --------------- | ----------------------------- | ----------------- |
-| Like/Unlike     | `wire:click` + counter update | Instant feedback  |
-| Follow/Unfollow | Event dispatch + listener     | Real-time count   |
-| Create Post     | Modal + PostList refresh      | Immediate display |
-| Edit Post       | Action menu + reload          | Live update       |
-| Delete Post     | Confirmation + remove         | Instant removal   |
+```php
+public function mount(): void
+{
+    // 1. Component created & props passed in
+    // 2. Load initial data from DB
+    // 3. Set up properties
+    // Runs ONCE per page load
+}
 
-### Data Flow Architecture
+public function updated($property, $value): void
+{
+    // 2. Property changed (via wire:model atau wire:click)
+    // 3. Re-validate or update related data
+    // Runs EVERY time data changes
+
+    if ($property === 'content') {
+        // User is typing, validate content length
+        $this->validateOnly('content');
+    }
+}
+
+public function render()
+{
+    // 4. Component re-rendered
+    // Return view with fresh data
+    // Runs after mount() atau updated()
+}
+
+// Timeline:
+// Request 1: mount() → render() → HTML sent to browser
+// User interaction...
+// Request 2: updated('property') → render() → Delta sent to browser
+// Browser DOM updated smoothly!
+```
+
+#### 4. Real-time PostModal Example
+
+```php
+<?php
+use Livewire\Volt\Component;
+
+new class extends Component
+{
+    public string $content = '';
+    public bool $showModal = false;
+    public ?int $postId = null;
+
+    // Validasi rules
+    public function rules(): array
+    {
+        return [
+            'content' => 'required|min:3|max:2000',
+        ];
+    }
+
+    // Auto-triggered saat $content berubah (via wire:model.debounce)
+    public function updated($property, $value): void
+    {
+        if ($property === 'content') {
+            // Validate real-time (character count, etc)
+            $this->validateOnly('content');
+        }
+    }
+
+    public function save(): void
+    {
+        // Full validation sebelum save
+        $validated = $this->validate();
+
+        if ($this->postId) {
+            Post::findOrFail($this->postId)->update($validated);
+        } else {
+            auth()->user()->posts()->create($validated);
+        }
+
+        // Reset form
+        $this->reset('content', 'postId', 'showModal');
+
+        // Notify parent component
+        $this->dispatch('postCreated');
+    }
+};
+?>
+
+<div>
+    <button wire:click="$toggle('showModal')" class="btn btn-primary">
+        ➕ Buat
+    </button>
+
+    @if($showModal)
+    <div class="modal modal-open">
+        <div class="modal-box">
+            <h2>{{ $postId ? 'Edit' : 'Buat Postingan Baru' }}</h2>
+
+            <form wire:submit="save">
+                <!-- Real-time binding dengan debounce 500ms -->
+                <textarea wire:model.debounce="content"
+                          placeholder="Apa yang Anda pikirkan?"
+                          class="textarea textarea-bordered w-full"
+                          rows="5"></textarea>
+
+                <!-- Error message real-time -->
+                @error('content')
+                    <span class="text-error text-sm">{{ $message }}</span>
+                @enderror
+
+                <!-- Character counter real-time -->
+                <div class="text-xs text-gray-500 mt-2">
+                    {{ strlen($content) }}/2000
+                </div>
+
+                <!-- Submit button disabled sampai content valid -->
+                <button type="submit"
+                        class="btn btn-primary"
+                        :disabled="strlen(content) < 3">
+                    {{ $postId ? 'Update' : 'Posting' }}
+                </button>
+            </form>
+        </div>
+    </div>
+    @endif
+</div>
+```
+
+**Flow:**
 
 ```
-┌─────────────────────────────────────────┐
-│   USER INTERACTION (Browser)            │
-│   - Click button                        │
-│   - Type in input                       │
-│   - Submit form                         │
-└──────────────┬──────────────────────────┘
-               │
-               ↓
-┌─────────────────────────────────────────┐
-│   LIVEWIRE JS (Client-side)             │
-│   - Intercepts event                    │
-│   - Sends to server                     │
-│   - Receives HTML delta                 │
-│   - Updates DOM                         │
-└──────────────┬──────────────────────────┘
-               │
-               ↓
-┌─────────────────────────────────────────┐
-│   LIVEWIRE COMPONENT (Server-side)      │
-│   - Process event                       │
-│   - Update PHP properties               │
-│   - Execute methods                     │
-│   - Dispatch events if needed           │
-└──────────────┬──────────────────────────┘
-               │
-               ↓
-┌─────────────────────────────────────────┐
-│   ELOQUENT ORM (Database)               │
-│   - Query execution                     │
-│   - Data persistence                    │
-│   - Relationships loaded                │
-└──────────────┬──────────────────────────┘
-               │
-               ↓
-┌─────────────────────────────────────────┐
-│   COMPONENT RE-RENDER                   │
-│   - Fresh HTML generated                │
-│   - Computed properties updated         │
-│   - Event listeners registered          │
-│   - Response sent to browser            │
-└──────────────┬──────────────────────────┘
-               │
-               ↓
-┌─────────────────────────────────────────┐
-│   DOM UPDATE (Browser)                  │
-│   - Smart delta-diffing                 │
-│   - Only changed elements updated       │
-│   - Smooth transitions                  │
-│   - User sees instant updates           │
-└─────────────────────────────────────────┘
+1. User klik "➕ Buat"
+   ↓
+2. wire:click="$toggle('showModal')"
+   → $showModal = true
+   → Modal appears
+
+3. User typing di textarea
+   ↓
+4. wire:model.debounce="content"
+   → Updated setiap 500ms
+   → Laravel validate real-time
+   → Error messages show/hide
+   → Character counter updates
+
+5. User klik "Posting"
+   ↓
+6. wire:submit="save"
+   → Full validation
+   → Database INSERT
+   → dispatch('postCreated')
+   → Modal closes
+   → PostList refresh!
+```
+
+### Common Pitfalls & Solutions
+
+❌ **Masalah:** Like button hilang setelah follow
+
+```blade
+<!-- SALAH - Tidak ada wire:key -->
+@foreach($posts as $post)
+    <livewire:likes.like-button :post="$post" />
+@endforeach
+```
+
+✅ **Solusi:**
+
+```blade
+<!-- BENAR - Dengan wire:key -->
+@foreach($posts as $post)
+    <livewire:likes.like-button :post="$post"
+        wire:key="like-button-{{ $post->id }}"
+    />
+@endforeach
+```
+
+❌ **Masalah:** Follower count tidak update
+
+```php
+// SALAH - Event tidak dispatch
+public function toggleFollow(): void
+{
+    $this->toggleFollowLogic();
+    // Lupa dispatch event!
+}
+```
+
+✅ **Solusi:**
+
+```php
+// BENAR - Event dispatch setelah toggle
+public function toggleFollow(): void
+{
+    $this->toggleFollowLogic();
+    $this->dispatch('followStatusChanged'); // Parent akan listen ini!
+}
 ```
 
 ---
 
-## 🎯 Fitur Detail
+## ⚡ Real-time Event Flow - Detailed Sequence
 
-### 1. Posting System
+### Scenario: User A mengikuti User B
 
-#### Membuat Postingan
+**Step-by-step flow dengan latencies:**
 
-1. Klik tombol **"➕ Buat"** di sidebar
-2. Modal akan membuka dengan form
-3. Ketik konten postingan (minimal 3 karakter)
-4. Klik **"Posting"** untuk submit
-5. Postingan akan muncul di feed
+```
+┌─ STEP 1: Follow Button Clicked (Browser) ─────────────────┐
+│ User A membuka profile User B                             │
+│ Klik tombol "Ikuti +" pada follow-button component        │
+│ Event: wire:click="toggleFollow" triggered                │
+│ Latency: < 5ms                                            │
+└─────────────────────────────────────────────────────────────┘
+                         │
+                         ▼
+┌─ STEP 2: Livewire Send Request (Network) ────────────────┐
+│ Livewire JS mengumpulkan state                            │
+│ Send AJAX request to backend dengan data                  │
+│ Include: component id, method name, parameters            │
+│ Latency: ~20ms (network round-trip)                      │
+└─────────────────────────────────────────────────────────────┘
+                         │
+                         ▼
+┌─ STEP 3: Backend Processing (Server) ───────────────────┐
+│ Backend method: toggleFollow() executed                   │
+│ Authorization check: Can User A follow User B? ✓          │
+│ Latency: < 5ms                                            │
+└─────────────────────────────────────────────────────────────┘
+                         │
+                         ▼
+┌─ STEP 4: Database Update (Server) ─────────────────────┐
+│ Query followers table                                    │
+│   INSERT INTO followers (user_id, following_id)          │
+│   VALUES (A_ID, B_ID)                                    │
+│ Toggle $isFollowing: false → true                        │
+│ Latency: ~30ms (database INSERT)                         │
+└─────────────────────────────────────────────────────────────┘
+                         │
+                         ▼
+┌─ STEP 5: Event Dispatch (Backend) ────────────────────┐
+│ $this->dispatch('followStatusChanged');                 │
+│ Event queued untuk global broadcast                      │
+│ In-memory event, tidak ke database                       │
+│ Latency: < 5ms                                           │
+└─────────────────────────────────────────────────────────────┘
+                         │
+                         ▼
+┌─ STEP 6: Livewire Response (Network) ────────────────┐
+│ Backend response dikirim ke browser                      │
+│ Include: component state, event info                     │
+│ JSON payload: ~2-5KB                                     │
+│ Latency: ~15ms (network response)                        │
+│                                                          │
+│ TOTAL LATENCY UNTIL HERE: ~70-80ms                       │
+└─────────────────────────────────────────────────────────────┘
+                         │
+                         ▼
+┌─ STEP 7: Browser DOM Update (Browser) ────────────────┐
+│ Livewire JS receive response                            │
+│ Update follow-button state: $isFollowing = true         │
+│ Re-render: "Ikuti +" → "Mengikuti ✓"                    │
+│ DOM manipulation & smooth transition                    │
+│ Latency: ~20ms                                          │
+│                                                         │
+│ USER SEES BUTTON CHANGE! ✨ (~90ms)                     │
+└─────────────────────────────────────────────────────────────┘
+                         │
+                         ▼
+┌─ STEP 8: Event Broadcast (Browser) ───────────────────┐
+│ Livewire broadcasts 'followStatusChanged' event          │
+│ All components listening on this event activated         │
+│ Profile component has: #[On('followStatusChanged')]      │
+│ Latency: < 10ms                                          │
+└─────────────────────────────────────────────────────────────┘
+                         │
+                         ▼
+┌─ STEP 9: Profile Data Refresh (Server) ──────────────┐
+│ Profile component method triggered:                      │
+│ refreshFollowerCount() executed                          │
+│ $this->user->refresh() - reload dari DB                 │
+│ loadUserData() - fetch fresh stats:                      │
+│   - $postCount = 15                                      │
+│   - $followersCount = 42 (increased by 1!) ⬆️            │
+│   - $followingCount = 23                                 │
+│ Latency: ~30ms                                           │
+└─────────────────────────────────────────────────────────────┘
+                         │
+                         ▼
+┌─ STEP 10: Profile Response (Network) ──────────────┐
+│ Profile component state dikirim ke browser              │
+│ New follower count: 41 → 42                             │
+│ Latency: ~15ms (network response)                        │
+│                                                         │
+│ TOTAL LATENCY: ~130-150ms ✓✓                           │
+└─────────────────────────────────────────────────────────┘
+                         │
+                         ▼
+┌─ STEP 11: Profile UI Update (Browser) ──────────────┐
+│ Livewire update Profile stats section                    │
+│ DOM change: <div>41</div> → <div>42</div>              │
+│ Smooth animation & re-render                            │
+│ Latency: ~10ms                                          │
+│                                                         │
+│ USER SEES FOLLOWER COUNT INCREASE! ✨ (~150ms)          │
+│ Entire flow feels INSTANT to user! ⚡                   │
+└─────────────────────────────────────────────────────────┘
+```
 
-**Validasi:**
+### Real-time Latency Breakdown
 
--   Minimal 3 karakter
--   Maksimal 2000 karakter
--   Required field
+| Layer    | Operation                       | Time  | Cumulative |
+| -------- | ------------------------------- | ----- | ---------- |
+| Browser  | User click → wire:click trigger | <5ms  | 5ms        |
+| Network  | Browser → Server                | ~20ms | 25ms       |
+| Server   | Authorization & validation      | <5ms  | 30ms       |
+| Database | INSERT operation                | ~30ms | 60ms       |
+| Server   | Event dispatch                  | <5ms  | 65ms       |
+| Network  | Server → Browser response       | ~15ms | 80ms       |
+| Browser  | DOM update button               | ~20ms | 100ms      |
+| Browser  | Event broadcast                 | <10ms | 110ms      |
+| Server   | Profile refresh query           | ~30ms | 140ms      |
+| Network  | Server → Browser response       | ~15ms | 155ms      |
+| Browser  | Profile DOM update              | ~10ms | **165ms**  |
 
-#### Mengedit Postingan
+**Real User Perception:** ~150-170ms feels INSTANT due to:
 
-1. Hover ke postingan milik Anda
-2. Klik ikon `...` (menu)
-3. Pilih **"Edit"**
-4. Modal akan terbuka dengan konten lama
-5. Edit konten dan klik **"Update"**
+-   Immediate button change (100ms)
+-   Second update feels like validation
+-   No page reload = smooth UX
 
-#### Menghapus Postingan
+### Performance Optimization Tips
 
-1. Hover ke postingan milik Anda
-2. Klik ikon `...` (menu)
-3. Pilih **"Hapus"**
-4. Konfirmasi penghapusan
-5. Postingan akan dihapus
+**1. Add Database Indexes**
 
-### 2. Like System
+```sql
+-- Significantly speeds up follower queries
+ALTER TABLE followers ADD INDEX idx_user_following
+    (user_id, following_id);
 
-#### Cara Memberikan Like
+ALTER TABLE likes ADD INDEX idx_user_post
+    (user_id, post_id);
+```
 
-1. Lihat postingan di feed atau profil user
-2. Klik icon ❤️ (hati) di bagian bawah post
-3. Icon akan berubah merah dan jumlah like bertambah
-4. Data update real-time tanpa refresh
+**2. Use loadCount() untuk efficient counting**
 
-#### Fitur Like
+```php
+// ❌ WRONG - Executes separate COUNT query
+$user = User::with('followers')->first();
+$followerCount = $user->followers()->count(); // Extra query!
 
--   **Real-time Update** - Jumlah like update langsung
--   **Status Indicator** - Icon berubah warna saat di-like
--   **Counter** - Tampilkan jumlah total like
--   **Responsive** - Bekerja di semua device
+// ✅ CORRECT - Uses single query with COUNT()
+$user = User::withCount('followers')->first();
+$followerCount = $user->followers_count; // No extra query!
+```
 
-### 3. Follow System
+**3. Eager loading untuk N+1 prevention**
 
-#### Cara Follow User
+```php
+// ❌ WRONG - N+1 queries (1 for user + N for each post's likes)
+$posts = Post::with('user')->get();
+foreach ($posts as $post) {
+    echo $post->likes()->count(); // Extra query per post!
+}
 
-1. Buka halaman profil user
-2. Klik tombol **"Ikuti"** (jika belum follow)
-3. Button akan berubah menjadi **"Mengikuti"**
-4. Postingan user akan muncul di feed Anda
+// ✅ CORRECT - Single query dengan eager loading
+$posts = Post::with('user')->withCount('likes')->get();
+foreach ($posts as $post) {
+    echo $post->likes_count; // Cached count!
+}
+```
 
-#### Suggested Users
+**4. Component caching untuk static content**
 
-1. Di dashboard, lihat section **"Orang yang Mungkin Anda Kenal"**
-2. Lihat rekomendasi user untuk diikuti
-3. Klik **"Ikuti"** untuk follow
-4. Atau klik nama user untuk lihat profilnya lebih dulu
+```php
+// Cache computed properties
+#[Computed]
+public function userStats()
+{
+    return User::select('id', 'name', 'email')
+        ->find($this->userId);
+    // Cached until $userId changes
+}
+```
 
-#### Unfollow
+**5. Debounce expensive operations**
 
-1. Buka profil user yang sudah di-follow
-2. Klik tombol **"Mengikuti"**
-3. Akan berubah menjadi **"Ikuti"** lagi
+```blade
+<!-- Validate real-time saat user typing -->
+<input wire:model.debounce-750ms="searchQuery"
+       placeholder="Search...">
 
-### 4. User Profile
-
-#### Public Profile
-
-1. Klik nama user di postingan atau card user
-2. URL: `/profile/{user-id}`
-3. Lihat profil lengkap user tersebut
-
-#### Profile Information
-
--   **Avatar** - Inisial dengan gradient
--   **Nama & Username** - Nama lengkap dan username
--   **Stats** - Jumlah postingan, pengikut, mengikuti
--   **Postingan** - Semua postingan user
-
-#### Edit Profile
-
-1. Di dashboard, klik menu profil (avatar di sidebar)
-2. Pilih **"Profil Saya"**
-3. Update nama dan email
-4. Klik **"Simpan Perubahan"**
+<!-- Mencegah terlalu banyak queries ke database -->
+<!-- Only search setelah user selesai typing 750ms -->
+```
 
 ---
 
@@ -1366,10 +2356,10 @@ Proyek ini menggunakan MIT License. Silakan lihat file `LICENSE` untuk detail le
 
 ## 👨‍💻 Author
 
-**Bryan Ka**
+**Bryan Kurnia Akbar**
 
 -   GitHub: [@Brynnnn12](https://github.com/Brynnnn12)
--   Email: admin@gmail.com
+-   Email: bryankurniaakbar12@gmail.com
 
 ---
 
